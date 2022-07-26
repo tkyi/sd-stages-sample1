@@ -60,10 +60,15 @@ jobs:
     image: node:14
     steps:
       - init: echo 'init'
+  job13:
+    requires: [job8]
+    image: node:14
+    steps:
+      - init: echo 'init'
 
 stages:
   starfish:
-    jobs: [job30, job4]
+    jobs: [job30, job13]
     description: "starfish deploy jobs"
   seahorse:
     jobs: [job30, job4]
